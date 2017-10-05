@@ -14,6 +14,7 @@
 	<packaging>jar</packaging>
 
 	<name>YoutubePlayerPool</name>
+	<description>Youtube iframe player video launcher</description>
 
 	<dependencies>
 		<dependency>
@@ -106,5 +107,13 @@
 			</plugin>
 		</plugins>
 	</build>
+
+	<url>https://github.com/nleva/${repo}</url>
+	<scm>
+		<url>https://github.com/nleva/${project.artifactId}</url>
+		<connection>scm:git:https://github.com/nleva/${project.artifactId}.git</connection>
+		<developerConnection>scm:git:https://github.com/nleva/${project.artifactId}.git</developerConnection>
+		<tag>HEAD</tag>
+	</scm>
 
 </project>
