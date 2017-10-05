@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<parent>
+		<groupId>ru.send-to.versionManagement</groupId>
+		<artifactId>LibsManagement</artifactId>
+		<version>0.6</version>
+	</parent>
+
+	<groupId>ru.send-to.gwt</groupId>
+	<artifactId>YoutubePlayerPool</artifactId>
+	<version>3.15.0-SNAPSHOT</version>
+	<packaging>jar</packaging>
+
+	<name>YoutubePlayerPool</name>
+
+	<dependencies>
+		<dependency>
+			<groupId>ru.send-to.gwt</groupId>
+			<artifactId>YoutubeIFrameApi</artifactId>
+			<version>3.15</version>
+			<type>jar</type>
+			<scope>compile</scope>
+		</dependency>
+		<dependency>
+			<groupId>ru.send-to.gwt.html</groupId>
+			<artifactId>HtmlGwt</artifactId>
+			<type>jar</type>
+			<scope>compile</scope>
+		</dependency>
+		<dependency>
+			<groupId>com.google.gwt</groupId>
+			<artifactId>gwt-user</artifactId>
+			<type>jar</type>
+			<scope>compile</scope>
+		</dependency>
+		<dependency>
+			<groupId>com.google.gwt</groupId>
+			<artifactId>gwt-elemental</artifactId>
+			<type>jar</type>
+			<scope>compile</scope>
+		</dependency>
+		<dependency>
+			<groupId>ru.send-to.gwt</groupId>
+			<artifactId>EventBus</artifactId>
+			<type>jar</type>
+			<scope>compile</scope>
+		</dependency>
+		<dependency>
+			<groupId>ru.send-to.gwt</groupId>
+			<artifactId>Notifications</artifactId>
+			<type>jar</type>
+			<scope>compile</scope>
+		</dependency>
+		<dependency>
+			<groupId>org.projectlombok</groupId>
+			<artifactId>lombok</artifactId>
+			<scope>compile</scope>
+		</dependency>
+	</dependencies>
+
+	<build>
+		<finalName>${project.artifactId}</finalName>
+		<plugins>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-resources-plugin</artifactId>
+				<executions>
+					<execution>
+						<id>copy-resources</id>
+						<phase>prepare-package</phase>
+						<goals>
+							<goal>copy-resources</goal>
+						</goals>
+						<configuration>
+							<outputDirectory>${project.build.directory}/classes/</outputDirectory>
+							<resources>
+								<resource>
+									<directory>${basedir}/src/main/resources/</directory>
+									<filtering>true</filtering>
+									<includes>
+										<include>**</include>
+									</includes>
+								</resource>
+								<resource>
+									<directory>${project.build.directory}/generated-sources/delombok/</directory>
+									<filtering>true</filtering>
+									<includes>
+										<include>**</include>
+									</includes>
+								</resource>
+							</resources>
+						</configuration>
+					</execution>
+				</executions>
+			</plugin>
+
+			<plugin>
+				<groupId>org.projectlombok</groupId>
+				<artifactId>lombok-maven-plugin</artifactId>
+			</plugin>
+
+			<plugin>
+				<artifactId>maven-jar-plugin</artifactId>
+			</plugin>
+		</plugins>
+	</build>
+
+</project>
